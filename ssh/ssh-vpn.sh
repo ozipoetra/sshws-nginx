@@ -78,9 +78,9 @@ systemctl start rc-local.service
 #update
 apt update -y
 apt upgrade -y
-apt dist-upgrade -y
-apt-get remove --purge ufw firewalld -y
-apt-get remove --purge exim4 -y
+# apt dist-upgrade -y
+# apt-get remove --purge ufw firewalld -y
+# apt-get remove --purge exim4 -y
 
 # install wget and curl
 apt -y install wget curl
@@ -107,7 +107,7 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 
 # install
-apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https neofetch git lsof
+apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen iftop htop net-tools zip unzip wget net-tools curl nano sed screen bc apt-transport-https neofetch git lsof
 echo "clear" >> .profile
 echo "neofetch" >> .profile
 
@@ -170,10 +170,10 @@ wget -O clearlog "https://${akbarvpn}/clearlog.sh"
 
 wget -O xp "https://${akbarvpn}/xp.sh"
 
-wget -O ipsaya "https://raw.githubusercontent.com/fisabiliyusri/sshws-nginx/main/update/ipsaya.sh"
+wget -O ipsaya "https://raw.githubusercontent.com/ozipoetra/sshws-nginx/main/update/ipsaya.sh"
 
-wget -O setmenu "https://raw.githubusercontent.com/fisabiliyusri/sshws-nginx/main/update/setmenu.sh"
-wget -O running "https://raw.githubusercontent.com/fisabiliyusri/sshws-nginx/main/update/running.sh"
+wget -O setmenu "https://raw.githubusercontent.com/ozipoetra/sshws-nginx/main/update/setmenu.sh"
+wget -O running "https://raw.githubusercontent.com/ozipoetra/sshws-nginx/main/update/running.sh"
 
 
 chmod +x ipsaya
@@ -210,11 +210,11 @@ echo "0 1 * * * root delexp" >> /etc/crontab
 # remove unnecessary files
 cd
 apt autoclean -y
-apt -y remove --purge unscd
-apt-get -y --purge remove samba*;
+# apt -y remove --purge unscd
+# apt-get -y --purge remove samba*;
 apt-get -y --purge remove apache2*;
-apt-get -y --purge remove bind9*;
-apt-get -y remove sendmail*
+# apt-get -y --purge remove bind9*;
+# apt-get -y remove sendmail*
 apt autoremove -y
 # finishing
 cd
