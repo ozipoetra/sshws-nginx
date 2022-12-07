@@ -8,9 +8,13 @@ SSH over websocket through Nginx reverse proxy
 
 
 ### Installation
-We didn't provide yet, will be coming soon.
+```
+wget https://raw.githubusercontent.com/ozipoetra/sshws-nginx/main/install-nat.sh && chmod +x install-nat.sh && ./install-nat.sh
+```
+
 
 NGINX Reverse Proxy: point to http://127.0.0.1:8880/
+```
 #PROXY-START/api/
 
 location ^~ /path/
@@ -26,6 +30,7 @@ location ^~ /path/
 }
 
 #PROXY-END/api/
+```
 
 ### Credit
 * Sulaiman SL
