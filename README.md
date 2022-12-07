@@ -11,7 +11,21 @@ SSH over websocket through Nginx reverse proxy
 We didn't provide yet, will be coming soon.
 
 NGINX Reverse Proxy: point to http://127.0.0.1:8880/
+#PROXY-START/api/
 
+location ^~ /path/
+{     
+    if ($http_upgrade != "websocket") {
+    return 404;
+    }
+    proxy_pass http://127.0.0.1:8880/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header REMOTE-HOST $remote_addr;
+}
+
+#PROXY-END/api/
 
 ### Credit
 * Sulaiman SL
