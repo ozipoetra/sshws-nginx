@@ -12,8 +12,12 @@ SSH over websocket through Nginx reverse proxy
 wget https://raw.githubusercontent.com/ozipoetra/sshws-nginx/main/install-nat.sh && chmod +x install-nat.sh && ./install-nat.sh
 ```
 
+### For Xray
+Use this one (Z-UI)[https://github.com/ozipoetra/z-ui]
 
-NGINX Reverse Proxy: point to http://127.0.0.1:8880/
+---
+
+#### NGINX Reverse Proxy: point to http://127.0.0.1:8880/
 #### Simple Configuration (aapanel ready to use)
 ```
 #PROXY-START/wsspath/
