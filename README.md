@@ -15,21 +15,22 @@ wget https://raw.githubusercontent.com/ozipoetra/sshws-nginx/main/install-nat.sh
 
 NGINX Reverse Proxy: point to http://127.0.0.1:8880/
 ```
-#PROXY-START/api/
+#PROXY-START/wsspath/
 
-location ^~ /path/
-{     
-    if ($http_upgrade != "websocket") {
-    return 404;
-    }
+location ^~ /wsspath/
+{
     proxy_pass http://127.0.0.1:8880/;
+    proxy_redirect off;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header REMOTE-HOST $remote_addr;
+    proxy_read_timeout 52w;
 }
 
-#PROXY-END/api/
+#PROXY-END/wsspath/
 ```
 
 ### Credit
